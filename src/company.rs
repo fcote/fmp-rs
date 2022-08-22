@@ -1,6 +1,6 @@
+use crate::{request, Client};
 use reqwest::StatusCode;
-use serde::{Serialize, Deserialize};
-use crate::{Client, request};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -50,7 +50,8 @@ impl Client {
             self.base,
             tickers.join(","),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 
     pub async fn company(&self, ticker: &str) -> Result<Option<FMPCompany>, StatusCode> {

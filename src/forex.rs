@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -27,8 +27,8 @@ impl Client {
     pub async fn forex_quotes(&self) -> Result<Vec<FMPForexQuote>, StatusCode> {
         request(format!(
             "{}/v3/quotes/forex?apikey={}",
-            self.base,
-            self.api_key,
-        )).await
+            self.base, self.api_key,
+        ))
+        .await
     }
 }

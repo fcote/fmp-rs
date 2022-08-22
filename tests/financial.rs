@@ -13,7 +13,6 @@ async fn test_income_statement() {
     assert_eq!(statement.symbol, "AAPL");
 }
 
-
 #[tokio::test]
 async fn test_balance_sheet_statement() {
     let fmp = get_client();

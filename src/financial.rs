@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
 use crate::period::FMPPeriod;
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -46,14 +46,19 @@ pub struct FMPIncomeStatement {
 }
 
 impl Client {
-    pub async fn income_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPIncomeStatement>, StatusCode> {
+    pub async fn income_statements(
+        &self,
+        ticker: &str,
+        period: FMPPeriod,
+    ) -> Result<Vec<FMPIncomeStatement>, StatusCode> {
         request(format!(
             "{}/v3/income-statement/{}?period={}&apikey={}",
             self.base,
             ticker,
             period.value(),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 }
 
@@ -117,14 +122,19 @@ pub struct FMPBalanceSheetStatement {
 }
 
 impl Client {
-    pub async fn balance_sheet_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPBalanceSheetStatement>, StatusCode> {
+    pub async fn balance_sheet_statements(
+        &self,
+        ticker: &str,
+        period: FMPPeriod,
+    ) -> Result<Vec<FMPBalanceSheetStatement>, StatusCode> {
         request(format!(
             "{}/v3/balance-sheet-statement/{}?period={}&apikey={}",
             self.base,
             ticker,
             period.value(),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 }
 
@@ -174,13 +184,18 @@ pub struct FMPCashFlowStatement {
 }
 
 impl Client {
-    pub async fn cash_flow_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPCashFlowStatement>, StatusCode> {
+    pub async fn cash_flow_statements(
+        &self,
+        ticker: &str,
+        period: FMPPeriod,
+    ) -> Result<Vec<FMPCashFlowStatement>, StatusCode> {
         request(format!(
             "{}/v3/cash-flow-statement/{}?period={}&apikey={}",
             self.base,
             ticker,
             period.value(),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 }

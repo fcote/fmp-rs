@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -27,13 +27,15 @@ pub struct FMPHistoricalPriceResponse {
 }
 
 impl Client {
-    pub async fn historical_prices(&self, ticker: &str) -> Result<Vec<FMPHistoricalPrice>, StatusCode> {
+    pub async fn historical_prices(
+        &self,
+        ticker: &str,
+    ) -> Result<Vec<FMPHistoricalPrice>, StatusCode> {
         let response = request::<FMPHistoricalPriceResponse>(format!(
             "{}/v3/historical-price-full/{}?from=1980-01-01L&apikey={}",
-            self.base,
-            ticker,
-            self.api_key,
-        )).await?;
+            self.base, ticker, self.api_key,
+        ))
+        .await?;
         Ok(response.historical)
     }
 }

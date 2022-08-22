@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -33,10 +33,9 @@ impl Client {
         let ticker = tickers.join(",");
         request(format!(
             "{}/v3/quote/{}?apikey={}",
-            self.base,
-            ticker,
-            self.api_key,
-        )).await
+            self.base, ticker, self.api_key,
+        ))
+        .await
     }
 
     pub async fn quote(&self, ticker: &str) -> Result<Option<FMPQuote>, StatusCode> {

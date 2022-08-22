@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -35,7 +35,8 @@ impl Client {
             self.base,
             tickers.join(","),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 
     pub async fn stock(&self, ticker: &str) -> Result<Option<FMPStock>, StatusCode> {
@@ -58,10 +59,9 @@ impl Client {
     pub async fn stock_search(&self, query: &str) -> Result<Vec<FMPStockSearch>, StatusCode> {
         request(format!(
             "{}/v3/search-ticker?query={}&apikey={}",
-            self.base,
-            query,
-            self.api_key,
-        )).await
+            self.base, query, self.api_key,
+        ))
+        .await
     }
 }
 
@@ -81,8 +81,8 @@ impl Client {
     pub async fn stock_list(&self) -> Result<Vec<FMPPartialStock>, StatusCode> {
         request(format!(
             "{}/v3/stock/list?apikey={}",
-            self.base,
-            self.api_key,
-        )).await
+            self.base, self.api_key,
+        ))
+        .await
     }
 }

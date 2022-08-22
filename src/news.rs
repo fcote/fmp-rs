@@ -1,5 +1,5 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -17,11 +17,9 @@ impl Client {
     pub async fn news(&self, ticker: &str, limit: i32) -> Result<Vec<FMPNews>, StatusCode> {
         request(format!(
             "{}/v3/stock_news?tickers={}&limit={}&apikey={}",
-            self.base,
-            ticker,
-            limit,
-            self.api_key,
-        )).await
+            self.base, ticker, limit, self.api_key,
+        ))
+        .await
     }
 }
 
@@ -35,13 +33,15 @@ pub struct FMPPressRelease {
 }
 
 impl Client {
-    pub async fn press_releases(&self, ticker: &str, limit: i32) -> Result<Vec<FMPPressRelease>, StatusCode> {
+    pub async fn press_releases(
+        &self,
+        ticker: &str,
+        limit: i32,
+    ) -> Result<Vec<FMPPressRelease>, StatusCode> {
         request(format!(
             "{}/v3/press-releases/{}?limit={}&apikey={}",
-            self.base,
-            ticker,
-            limit,
-            self.api_key,
-        )).await
+            self.base, ticker, limit, self.api_key,
+        ))
+        .await
     }
 }

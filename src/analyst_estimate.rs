@@ -1,6 +1,6 @@
-use serde::{Serialize, Deserialize};
-use crate::{Client, request, StatusCode};
 use crate::period::FMPPeriod;
+use crate::{request, Client, StatusCode};
+use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -30,13 +30,18 @@ pub struct FMPAnalystEstimates {
 }
 
 impl Client {
-    pub async fn analyst_estimates(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPAnalystEstimates>, StatusCode> {
+    pub async fn analyst_estimates(
+        &self,
+        ticker: &str,
+        period: FMPPeriod,
+    ) -> Result<Vec<FMPAnalystEstimates>, StatusCode> {
         request(format!(
             "{}/v3/analyst-estimates/{}?period={}&apikey={}",
             self.base,
             ticker,
             period.value(),
             self.api_key,
-        )).await
+        ))
+        .await
     }
 }

@@ -1,34 +1,34 @@
-use serde::de::DeserializeOwned;
 use reqwest::{Response, StatusCode};
+use serde::de::DeserializeOwned;
 
-pub mod period;
-pub mod stock;
 pub mod analyst_estimate;
 pub mod company;
-pub mod financial;
-pub mod quote;
-pub mod historical_price;
 pub mod earning;
-pub mod news;
+pub mod financial;
 pub mod forex;
+pub mod historical_price;
+pub mod news;
+pub mod period;
+pub mod quote;
+pub mod stock;
 
 pub struct Client {
     pub base: String,
-    pub api_key: String
+    pub api_key: String,
 }
 
 impl Client {
     pub fn new(endpoint: &str, api_key: &str) -> Self {
         Client {
             base: endpoint.to_string(),
-            api_key: api_key.to_string()
+            api_key: api_key.to_string(),
         }
     }
 }
 
 async fn decode_content<T>(response: Response) -> Result<T, StatusCode>
 where
-    T: DeserializeOwned
+    T: DeserializeOwned,
 {
     let content = response.json::<T>().await;
     match content {
@@ -42,7 +42,7 @@ where
 
 async fn request<T>(endpoint: String) -> Result<T, StatusCode>
 where
-    T: DeserializeOwned
+    T: DeserializeOwned,
 {
     let response = reqwest::get(endpoint).await;
     match response {
