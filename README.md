@@ -1,6 +1,8 @@
 # Financial Modeling Prep Web API | Rust SDK 🦀
 
-This is a wrapper for the Financial Modeling Prep Web API. It currently does not support every endpoints.
+fmp-rs is a wrapper for the Financial Modeling Prep Web API. 
+
+This is only a partial implementation, feel free to submit a pull request for new endpoints. Also it currently only supports async, a pull request for a blocking client would be welcome.
 
 To learn how to use fmp-rs, please refer to the usage section below.
 
