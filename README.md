@@ -21,7 +21,7 @@ async fn main() {
       "<FMP_API_KEY>",
   )
   
-  let result = fmp.income_statement("AAPL", FMPPeriod::YEAR).await;
+  let result = fmp.income_statements("AAPL", FMPPeriod::YEAR).await;
   let statements = result.unwrap();
   println!("{:?}", statements);
 }

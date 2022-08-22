@@ -46,7 +46,7 @@ pub struct FMPIncomeStatement {
 }
 
 impl Client {
-    pub async fn income_statement(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPIncomeStatement>, StatusCode> {
+    pub async fn income_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPIncomeStatement>, StatusCode> {
         request(format!(
             "{}/v3/income-statement/{}?period={}&apikey={}",
             self.base,
@@ -117,7 +117,7 @@ pub struct FMPBalanceSheetStatement {
 }
 
 impl Client {
-    pub async fn balance_sheet_statement(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPBalanceSheetStatement>, StatusCode> {
+    pub async fn balance_sheet_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPBalanceSheetStatement>, StatusCode> {
         request(format!(
             "{}/v3/balance-sheet-statement/{}?period={}&apikey={}",
             self.base,
@@ -174,7 +174,7 @@ pub struct FMPCashFlowStatement {
 }
 
 impl Client {
-    pub async fn cash_flow_statement(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPCashFlowStatement>, StatusCode> {
+    pub async fn cash_flow_statements(&self, ticker: &str, period: FMPPeriod) -> Result<Vec<FMPCashFlowStatement>, StatusCode> {
         request(format!(
             "{}/v3/cash-flow-statement/{}?period={}&apikey={}",
             self.base,
