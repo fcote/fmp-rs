@@ -37,11 +37,11 @@ async fn main() {
 
 - Stock search | `/v3/search?query=AA`
 - Stock list | `/v3/stock/list`
-- Stock quote | `/v3/quote/AAPL`
-- Historical price | `/v3/historical-price-full/AAPL`
+- Stock quotes | `/v3/quote/AAPL`
+- Historical prices | `/v3/historical-price-full/AAPL`
 - Analyst estimates | `/v3/analyst-estimates/AAPL`
-- Company profile | `/v3/profile/AAPL`
-- Earning
+- Company profiles | `/v3/profile/AAPL`
+- Earnings
   - Calendar | `/v3/historical/earning_calendar/AAPL?limit=80`
   - Call transcript list | `/v4/earning_call_transcript?symbol=AAPL`
   - Call transcript | `/v3/earning_call_transcript/AAPL?quarter=3&year=2020`
