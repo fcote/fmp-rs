@@ -2,6 +2,17 @@
 name = "fmp"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.61"
+authors = [
+    "Fabien CÔTÉ <fabien.cote@me.com>",
+]
+license = "MIT"
+readme = "README.md"
+description = "Financial Modeling Prep API Wrapper"
+homepage = "https://github.com/fcote/fmp-rs"
+repository = "https://github.com/fcote/fmp-rs"
+keywords = ["fmp", "financial", "modeling", "prep"]
+categories = ["api-bindings"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
