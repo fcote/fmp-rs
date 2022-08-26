@@ -11,7 +11,7 @@ To learn how to use fmp-rs, please refer to the usage section below.
 ```toml
 [dependencies]
 
-fmp = "0.1"
+fmp = "0.2"
 ```
 
 ## Usage
