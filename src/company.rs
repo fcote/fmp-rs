@@ -3,22 +3,26 @@ use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct FMPCompany {
     pub symbol: String,
     pub price: f64,
     pub beta: f64,
-    pub vol_avg: f64,
-    pub mkt_cap: f64,
+    #[serde(rename = "volAvg")]
+    pub vol_avg: i64,
+    #[serde(rename = "mktCap")]
+    pub mkt_cap: i64,
+    #[serde(rename = "lastDiv")]
     pub last_div: f64,
     pub range: String,
     pub changes: f64,
+    #[serde(rename = "companyName")]
     pub company_name: String,
     pub currency: String,
-    pub cik: String,
+    pub cik: Option<String>,
     pub isin: String,
-    pub cusip: String,
+    pub cusip: Option<String>,
     pub exchange: String,
+    #[serde(rename = "exchangeShortName")]
     pub exchange_short_name: String,
     pub industry: String,
     pub website: String,
@@ -26,20 +30,28 @@ pub struct FMPCompany {
     pub ceo: String,
     pub sector: String,
     pub country: String,
+    #[serde(rename = "fullTimeEmployees")]
     pub full_time_employees: String,
-    pub phone: String,
-    pub address: String,
-    pub city: String,
-    pub state: String,
-    pub zip: String,
-    pub dcf_diff: f64,
+    pub phone: Option<String>,
+    pub address: Option<String>,
+    pub city: Option<String>,
+    pub state: Option<String>,
+    pub zip: Option<String>,
+    #[serde(rename = "dcfDiff")]
+    pub dcf_diff: Option<f64>,
     pub dcf: f64,
     pub image: String,
+    #[serde(rename = "ipoDate")]
     pub ipo_date: String,
+    #[serde(rename = "defaultImage")]
     pub default_image: bool,
+    #[serde(rename = "isEtf")]
     pub is_etf: bool,
+    #[serde(rename = "isActivelyTrading")]
     pub is_actively_trading: bool,
+    #[serde(rename = "isAdr")]
     pub is_adr: bool,
+    #[serde(rename = "isFund")]
     pub is_fund: bool,
 }
 

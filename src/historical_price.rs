@@ -32,7 +32,7 @@ impl Client {
         ticker: &str,
     ) -> Result<Vec<FMPHistoricalPrice>, StatusCode> {
         let response = request::<FMPHistoricalPriceResponse>(format!(
-            "{}/v3/historical-price-full/{}?from=1980-01-01L&apikey={}",
+            "{}/v3/historical-price-full/{}?from=1980-01-01&apikey={}",
             self.base, ticker, self.api_key,
         ))
         .await?;
