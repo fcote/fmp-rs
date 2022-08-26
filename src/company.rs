@@ -31,7 +31,7 @@ pub struct FMPCompany {
     pub sector: String,
     pub country: String,
     #[serde(rename = "fullTimeEmployees")]
-    pub full_time_employees: String,
+    pub full_time_employees: Option<String>,
     pub phone: Option<String>,
     pub address: Option<String>,
     pub city: Option<String>,

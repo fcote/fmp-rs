@@ -16,11 +16,11 @@ async fn test_batch_companies() {
     let fmp = get_client();
 
     let tickers = vec![
-        "HBAN", "DB", "MRVL", "WBA", "CDNA", "RSX", "KNX", "KBH", "DISCK", "PGR", "XLE", "MO",
-        "MDT", "RIG", "BCS", "CDEV", "EOG", "XLP", "HPE", "TXN", "OAS", "OKE", "CVS", "SVXY",
-        "HES", "GDDY", "BX", "NLSN", "TS", "BOX", "OXY", "CVE", "SYF", "IAU", "MTG", "LUV", "FTI",
-        "AA", "ABEV", "VTI", "EQR", "EWG", "ETSY", "TAL", "UNH", "GES", "AMZN", "NFLX", "ENTG",
-        "CSX",
+        "BTU", "JBGS", "IPG", "DE", "KHC", "COG", "IBM", "NYT", "DBJP", "AAL", "OLN", "JCI",
+        "VICI", "VST", "NWL", "EPD", "KMB", "AEP", "IT", "CAT", "AU", "XRAY", "KKR", "IEUR", "LQD",
+        "CMC", "XBI", "TMUS", "EWW", "NRG", "CPB", "ATHM", "WRB", "MOMO", "TGT", "TV", "GLW",
+        "MAS", "DOV", "HRL", "TECK", "AES", "PPL", "IXUS", "SEE", "NLY", "FRC", "EWT", "STX",
+        "ADBE",
     ];
     let result = fmp.batch_companies(tickers).await;
 
