@@ -19,14 +19,14 @@ pub struct FMPCompany {
     pub company_name: String,
     pub currency: String,
     pub cik: Option<String>,
-    pub isin: String,
+    pub isin: Option<String>,
     pub cusip: Option<String>,
     pub exchange: String,
     #[serde(rename = "exchangeShortName")]
     pub exchange_short_name: String,
     pub industry: String,
     pub website: String,
-    pub description: String,
+    pub description: Option<String>,
     pub ceo: String,
     pub sector: String,
     pub country: String,
@@ -42,7 +42,7 @@ pub struct FMPCompany {
     pub dcf: f64,
     pub image: String,
     #[serde(rename = "ipoDate")]
-    pub ipo_date: String,
+    pub ipo_date: Option<String>,
     #[serde(rename = "defaultImage")]
     pub default_image: bool,
     #[serde(rename = "isEtf")]
