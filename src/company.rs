@@ -13,23 +13,23 @@ pub struct FMPCompany {
     pub mkt_cap: i64,
     #[serde(rename = "lastDiv")]
     pub last_div: f64,
-    pub range: String,
+    pub range: Option<String>,
     pub changes: f64,
     #[serde(rename = "companyName")]
-    pub company_name: String,
-    pub currency: String,
+    pub company_name: Option<String>,
+    pub currency: Option<String>,
     pub cik: Option<String>,
     pub isin: Option<String>,
     pub cusip: Option<String>,
-    pub exchange: String,
+    pub exchange: Option<String>,
     #[serde(rename = "exchangeShortName")]
-    pub exchange_short_name: String,
-    pub industry: String,
-    pub website: String,
+    pub exchange_short_name: Option<String>,
+    pub industry: Option<String>,
+    pub website: Option<String>,
     pub description: Option<String>,
-    pub ceo: String,
-    pub sector: String,
-    pub country: String,
+    pub ceo: Option<String>,
+    pub sector: Option<String>,
+    pub country: Option<String>,
     #[serde(rename = "fullTimeEmployees")]
     pub full_time_employees: Option<String>,
     pub phone: Option<String>,
@@ -39,8 +39,8 @@ pub struct FMPCompany {
     pub zip: Option<String>,
     #[serde(rename = "dcfDiff")]
     pub dcf_diff: Option<f64>,
-    pub dcf: f64,
-    pub image: String,
+    pub dcf: Option<f64>,
+    pub image: Option<String>,
     #[serde(rename = "ipoDate")]
     pub ipo_date: Option<String>,
     #[serde(rename = "defaultImage")]
