@@ -69,10 +69,10 @@ impl Client {
 #[serde(rename_all = "camelCase")]
 pub struct FMPPartialStock {
     pub symbol: String,
-    pub name: String,
-    pub price: f64,
-    pub exchange: String,
-    pub exchange_short_name: String,
+    pub name: Option<String>,
+    pub price: Option<f64>,
+    pub exchange: Option<String>,
+    pub exchange_short_name: Option<String>,
     #[serde(rename = "type")]
     pub type_field: String,
 }
